@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Stage 2 - Filters</title>
+</head>
+
+<body ng-app='app'>
+
+	<div ng-controller='FilterCtrl'>
+		<h3>Filtros de formateo</h3>
+		<table>
+			<thead>
+				<tr>
+					<th>Nombres</th>
+					<th>Apellidos</th>
+					<th>Edad</th>
+					<th>Fecha de inscripcion</th>
+					<th>Salario</th>
+					<th>Nickname</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="employee in employees">
+					<td>{{employee.name}}</td>
+					<td>{{employee.last_name}}</td>
+					<td>{{employee.age | ages}}</td>
+					<td>{{employee.date | date: 'short' }}</td>
+					<td>{{employee.salary | currency}}</td>
+					<td>{{employee.nickname | uppercase}}</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<h3>Filtros de busqueda en colecciones</h3>
+		<table>
+			<thead>
+				<tr>
+					<th>Nombres</th>
+					<th>Apellidos</th>
+					<th>Edad</th>
+					<th>Fecha de inscripcion</th>
+					<th>Salario</th>
+					<th>Nickname</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="employee in employees | filter:{name: 'Arturo'}">
+					<td>{{employee.name}}</td>
+					<td>{{employee.last_name}}</td>
+					<td>{{employee.age}}</td>
+					<td>{{employee.date | date: 'fullDate' }}</td>
+					<td>{{employee.salary | currency}}</td>
+					<td>{{employee.nickname | uppercase}}</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<h3>Filtros de ordenamiento</h3>
+		<table>
+			<thead>
+				<tr>
+					<th>Nombres</th>
+					<th>Apellidos</th>
+					<th>Edad</th>
+					<th>Fecha de inscripcion</th>
+					<th>Salario</th>
+					<th>Nickname</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="employee in employees | orderBy: 'salary'">
+					<td>{{employee.name}}</td>
+					<td>{{employee.last_name}}</td>
+					<td>{{employee.age}}</td>
+					<td>{{employee.date | date: 'medium' }}</td>
+					<td>{{employee.salary | currency}}</td>
+					<td>{{employee.nickname | uppercase}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+	<script src='filters.js'></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+		<title>Favourite songs</title>
+	</head>
+
+	<body ng-app='app'>
+		<div class="center" ng-controller="HomeCtrl">
+			<h2 class="text-center">Mis canciones favoritas</h2>
+			<div ng-if='songs.length'>
+				<table class='table'>
+					<tr>
+						<th>Nombre</th>
+						<th>Artista</th>
+						<th>Album</th>
+					</tr>
+					<tr ng-repeat="song in songs | orderBy: 'name'">
+						<td>{{song.name}}</td>
+						<td>{{song.artist}}</td>
+						<td>{{song.album}}</td>
+					</tr>
+				</table>
+			</div>
+
+			<div class="form-group">
+				<button type="button" class="btn btn-info center-block" ng-click='flag = true'>Añadir cancion</button>
+			</div>
+			
+			<div class="panel panel-default" ng-show='flag'>
+  				<div class="panel-heading"><h5>Adicione una nueva cancion</h5></div>
+  				<div class="panel-body">
+    				<div class="row form-group">
+					 	<div class="col-md-4">
+					  		<input class='form-control' placeholder='Nombre' type="text" ng-model='song.name'>
+					  	</div>
+					  	<div class="col-md-4">
+					  		<input class='form-control' placeholder='Artista' type="text" ng-model='song.artist'>
+					  	</div>
+					  	<div class="col-md-4">
+					  		<input class='form-control' placeholder='Album' type="text" ng-model='song.album'>
+					  	</div>
+					</div>
+					
+					<div class="form-group">
+						<button type="button" class="btn" ng-click="add(song)">Add</button>
+					</div>
+  				</div>
+			</div>
+		</div>
+	</body>
+
+	<script src="vendors/angular.min.js"></script>
+	<script src="app/index.js"></script>
+	<script src="app/controllers/home.js"></script>
+</html>

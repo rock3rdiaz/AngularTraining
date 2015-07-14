@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Comunication between controllers</title>
+</head>
+<body ng-app='app'>
+
+	<div ng-controller="OneCtrl">
+
+		<input type="text" ng-model='data'> {{data}} - {{url}}
+		<br>
+		<button type="button" ng-click='getURL()'>Get URL from Factory.getURL</button>
+		
+	</div>
+
+	<div ng-controller="TwoCtrl">
+
+		<input type="text" ng-model='data'> {{data}} -{{url}}
+		<br>
+		<label for="">{{aux_on_ct}}</label>
+		<button type="button" ng-click='getURL()'>Get URL from Factory.URL</button>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>	
+	<script src='index.js'></script>
+	<script src='factory.js'></script>
+	<script src='one.js'></script>
+	<script src='two.js'></script>	
+</body>
+</html>
