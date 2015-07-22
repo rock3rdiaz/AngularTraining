@@ -1,0 +1,16 @@
+BUSCADOR DE CANCIONES V1.
+1. Pagina de busqueda, solo por nombre. Parametro 'term'
+2. Mientras se obtienen los datos, mostrar un mensaje de carga de datos.
+3. Pagina que muestre los resultados en forma de lista (http://getbootstrap.com/components/#list-group).
+4. Cada elemento de la lista debe contender: 
+	- artistName
+	- trackName
+	- longDescription
+	- artworkUrl60
+5. Usar bootstrap para el diseño de ambas paginas.
+6. Usar servicios para el consumo de la api.
+7. Usar promesas.
+
+
+- Endpoint de la api itunes:
+	https://www.apple.com/itunes/affiliates/resources/documentation/itunes-store-web-service-search-api.html

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<title>Http - Promises</title>
+</head>
+<body ng-app='app'>
+
+	<h3>El modulo $http</h3>
+
+	<fieldset>
+		<legend>Peticiones http 'normales'</legend>
+
+		<div ng-controller='HttpCtrl' class='well'>
+			
+			<button class='btn' type='button' ng-click='sendRequest()'>Consumir servicio</button>
+			<button class='btn' type='button' ng-click='sendRequestPromise()'>Consumir servicio como 'promesa'</button><button class='btn' type='button' ng-click='sendRequestRealPromise()'>Consumir servicio con $q</button>
+
+			<div ng-show='server_data' ng-cloak>
+				<span class='label label-info'>Datos:</span> <p>{{server_data}}</p>
+				<span class='label label-info'>Status:</span> <p>{{server_status}}</p>
+				<span class='label label-info'>Headers:</span> <p>{{server_headers}}</p>
+				<span class='label label-info'>Config:</span> <p>{{server_config}}</p>
+			</div>
+		</div>
+	</fieldset>
+
+	<script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Espere un momento!</h3>
+        </div>
+        <div class="modal-body">
+            <p>Cargando datos del servidor ...</p>
+        </div>
+        <div class="modal-footer">
+
+        </div>
+    </script>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+	<script src='../bower_components/angular-bootstrap/ui-bootstrap.js'></script>
+	<script src='../bower_components/angular-bootstrap/ui-bootstrap-tpls.js'></script>
+	<script src='index.js'></script>
+	<script src='controllers.js'></script>
+</body>
+</html>
